@@ -1,0 +1,17 @@
+﻿body {
+ 
+}
+table, td, th {
+    text-align: center;
+    background-color: #e5e5e5;
+    border-radius: 5px;
+    border: 2px solid #1c87c9;
+    padding: 10px;
+}
+.logo {
+    height: 40px;
+    width: 40px;
+}
+.pt-10 {
+   padding-top: 10px;
+}

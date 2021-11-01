@@ -1,16 +1,23 @@
-﻿@{ 
-    Layout = null;
-}
-<!DOCTYPE html>
+﻿
+<h1 class="h1">This application returns all the details about the book</h1>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-   <h1><u>Welcome to BookStore Application</u></h1>
-    <p>This application returns all the details about the book</p>
-    <b style="color:aqua;"><a href="~/Home/AbouUs">GoTo About-Us</a></b>
-</body>
-</html>
+@section breadcrumb{
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active"><a href="#">Book</a></li>
+            @*<li class="breadcrumb-item active" aria-current="page">GetAllBooks</li>*@
+        </ol>
+    </nav>
+}
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            alert("Document is ready");
+        })
+    </script>
+}
+
+
+
+

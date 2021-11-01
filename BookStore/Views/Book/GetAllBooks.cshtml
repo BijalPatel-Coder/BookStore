@@ -1,62 +1,72 @@
-﻿@model IEnumerable<BookStore.Models.BookModel>
+﻿@model IEnumerable<BookModel>
 
-@{
-    Layout = null;
+@section breadcrumb{
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Book</a></li>
+            <li class="breadcrumb-item active" aria-current="page">GetAllBooks</li>
+        </ol>
+    </nav>
 }
+<table class="table table-dark table-borderless md-3">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Book Name
+            </th>
+            <th>
+                Author Name
+            </th>
+        </tr>
+    </thead>
 
-<!DOCTYPE html>
+    @foreach (var item in Model)
+    {
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-   <style>
-       table,
-           td,
-           th {
-           text - align: center;
-           background - color: #e5e5e5;
-           border - radius: 5px;
-           border: 2px solid #1c87c9;
-           padding: 10px;
-       }
-   </style>
-</head>
-<body>
-    <h1>Get All The Books</h1>
-    <table>
-        <thead>
+        <tbody>
             <tr>
-                <th>
-                    Id
-                </th>
-                <th>
-                    Book Name
-                </th>
-                <th>
-                    Author Name
-                </th>
+                <td>
+                    @item.id
+                </td>
+                <td>
+                    @item.Title
+                </td>
+                <td>
+                    @item.Author
+                </td>
             </tr>
-        </thead>
+        </tbody>
 
-        @foreach (var item in Model)
+    }
+</table>
+<div class="container">
+    <h3 class="display-4">All Books</h3>
+    <div class="row">
+
+        @foreach (var book in Model)
         {
-
-            <tbody>
-                <tr>
-                    <td>
-                        @item.id
-                    </td>
-                    <td>
-                        @item.Title
-                    </td>
-                    <td>
-                        @item.Author
-                    </td>
-                </tr>
-            </tbody>
-
+            <div class="col-md-4">
+                <div class="card col-md-4" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h3 class="card-title">@book.Title</h3>
+                        <p class="card-text">@book.Description</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="~/Book/GetBook/@book.id" class="btn btn-sm btn-outline-secondary">Know More</a>
+                            </div>
+                            <small class="text-muted">@book.Author</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
         }
-    </table>
 
-</body>
-</html>
+
+
+    </div>
+</div>
